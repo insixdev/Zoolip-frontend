@@ -1,8 +1,7 @@
 import React, {  useState, ReactNode } from "react";
 import {AuthContext } from './authContext.ts'
-import { userApp } from "../user/userType.ts";
-import { loginService } from "./authService.ts";
-
+import { userApp, userAppRegister } from "../user/userType.ts";
+import { loginService, registerService } from "./authService.ts";
 
 
 // 3. Props del provider
@@ -14,14 +13,19 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<userApp| null>(null);
 
-  const login = (user: userApp) => { 
+  const login = async (user: userApp) => { 
     const loggedUser = await loginService(user)
-    setUser(user)
+    setUser(loggedUser)
   }
   const logout = () => setUser(null);
 
+  const register = async (user: userAppRegister) => {
+    const newUser = await registerService(user); 
+    setUser(newUser)
+
+  };
   return (
-    <AuthContext.Provider value={{user, login, logout }}>
+    <AuthContext.Provider value={{user, register, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

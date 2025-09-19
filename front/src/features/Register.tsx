@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {useAuth} from './auth/useAuth.ts'
 import { observer } from "mobx-react-lite";
 import { userApp } from "./user/userType.ts";
+import { AuthContext } from "./auth/authContext.ts";
 //
 // interface LoginProps {
 //   onLogin: (username: string, password: string) => void;
@@ -9,6 +10,8 @@ import { userApp } from "./user/userType.ts";
 const Login = observer(() => {
   // usamos el auth
   const { login } = useAuth();
+  // por si ya esta registrado 
+  const auth = useContext(AuthContext)
 
   // estado local
   const [username, setUsername] = useState("");
@@ -18,17 +21,16 @@ const Login = observer(() => {
   // function cuando el usuario clickea el boton
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!auth) return;
 
     try {
-      const user: userApp = {username, password}
-      await login(user);
-
-    } catch (err) {
-      alert("error en el login: " + err)
-
+      const newUser = await auth.register({username, password, rol});
+      console.log("puto : " + newUser)
+      alert("registrado con exito")
     }
-    //onLogin(username, password);
-    
+    catch(err){
+      alert(new Error("registro patead: " + err))
+    }
     // Limpiar inputs si quieres
     setUsername("");
     setPassword("");
@@ -85,6 +87,6 @@ const Login = observer(() => {
   );
 
 
-  })
+})
 export default Login;
 
