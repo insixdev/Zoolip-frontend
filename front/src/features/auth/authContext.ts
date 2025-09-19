@@ -1,5 +1,7 @@
 // AuthContext.tsx
 import { createContext } from "react";
+import { userApp } from '../user/userType.ts'
+
 /**
  * contrato de que datos
  * funciones estaran en toda la applicacion
@@ -9,8 +11,8 @@ import { createContext } from "react";
 
 
 interface AuthContextType {
-  user: string | null;
-  login: (username: string ) => void;
+  user: userApp | null;
+  login: (user: userApp) => void;
   logout: () => void;
 }
 

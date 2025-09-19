@@ -1,4 +1,5 @@
 import  axios  from "axios";
+import { userApp } from "../user/userType";
 
 export type userRequest = {
   username: string
@@ -17,7 +18,7 @@ const api = axios.create({
   baseURL: "http://localhost/3050/api/auth/"
 });
 
-export async function loginService(user: {username: string, password: string}){
+export async function loginService(user: userApp){ 
   const res = await api.post("/login", user);
 
   console.log(res.data)

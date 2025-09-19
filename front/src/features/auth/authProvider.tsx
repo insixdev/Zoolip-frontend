@@ -1,5 +1,7 @@
 import React, {  useState, ReactNode } from "react";
 import {AuthContext } from './authContext.ts'
+import { userApp } from "../user/userType.ts";
+import { loginService } from "./authService.ts";
 
 
 
@@ -10,9 +12,12 @@ interface AuthProviderProps {
 
 // 4. Provider
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState<userApp| null>(null);
 
-  const login = (username: string, password: string) => setUser(username);
+  const login = (user: userApp) => { 
+    const loggedUser = await loginService(user)
+    setUser(user)
+  }
   const logout = () => setUser(null);
 
   return (

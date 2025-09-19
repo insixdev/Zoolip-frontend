@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useAuth} from './auth/useAuth.ts'
 import { observer } from "mobx-react-lite";
+import { userApp } from "./user/userType.ts";
 //
 // interface LoginProps {
 //   onLogin: (username: string, password: string) => void;
@@ -18,7 +19,8 @@ const Login = observer(() => {
     e.preventDefault();
 
     try {
-      await login(username, password);
+      const user: userApp = {username, password}
+      await login(user);
 
     } catch (err) {
       alert("error en el login: " + err)
