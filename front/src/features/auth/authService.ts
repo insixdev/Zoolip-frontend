@@ -1,17 +1,20 @@
-import  axios  from "axios";
 import { userApp, userAppRegister } from "../user/userType";
-
 
 // enum Rol {
 //   USER,
 //   ADMIN
 // }
-export type loginUserReponse = { 
+
+/** url base*/
+const url = "http://localhost:3050/" 
+
+export type loginUserReponse = {
   status: string,
   token: string, 
   username: string
   id: number 
 }
+
 // register type req & res
 
 export type registerUserResponse = {
@@ -19,12 +22,10 @@ export type registerUserResponse = {
   message: string,
 }
 
-const api = axios.create({
-  baseURL: "http://localhost/3050/api/auth"
-});
 
 export async function registerService(user: userAppRegister) {
-  const res = await fetch("http://localhost:3050/api/auth/register", {
+  
+  const res = await fetch(`${url}api/auth/register`, { 
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -33,18 +34,36 @@ export async function registerService(user: userAppRegister) {
   });
 
   if (!res.ok) {
-    throw new Error(`Error: ${res.status}`);
+    throw new Error(`Error xd: ${res.status}`);
+    
   }
 
-  const data = await res.json();
+  const data: registerUserResponse = await res.json();
   console.log(data);
   return data;
 }
-export async function loginService(user: userApp){ 
-  
-  // hacemos la request y obtenemos la res
-  const res = await api.post("/login", "hola");
-  console.log(res.data)
-  return res.data
 
+
+export async function loginService(user: userApp){ 
+  // hacemos la request y obtenemos la res
+  const res = await fetch(`${url}api/auth/login`, { 
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+
+  });
+  if (!res.ok) {
+    throw new Error(`Error: ${res.status}`);
+  }
+  const data: loginUserReponse = await res.json();
+  console.log(data);
+  return data;
+
+  // const res = await api.post("/login", user);
+  // console.log(res.data)
+  // return res.data
+  //
 }
+

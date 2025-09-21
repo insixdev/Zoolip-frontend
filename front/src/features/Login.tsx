@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {useAuth} from './auth/useAuth.ts'
 import { observer } from "mobx-react-lite";
 import { userApp } from "./user/userType.ts";
+import { Link } from "react-router-dom"
 //
 // interface LoginProps {
 //   onLogin: (username: string, password: string) => void;
@@ -17,7 +18,6 @@ const Login = observer(() => {
   // function cuando el usuario clickea el boton
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       const user: userApp = {username, password}
       await login(user);
@@ -63,6 +63,8 @@ const Login = observer(() => {
 
         <button type="submit" style={{ padding: "0.5rem 1rem" }}>Login</button>
       </form>
+      
+    <Link to="login/"></Link>
     </div>
   );
 
