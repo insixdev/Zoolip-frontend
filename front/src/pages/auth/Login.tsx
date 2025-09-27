@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import {useAuth} from './auth/useAuth.ts'
+import {useAuth} from '../../features/auth/useAuth.ts'
 import { observer } from "mobx-react-lite";
-import { userApp } from "./user/userType.ts";
-import { Link } from "react-router-dom"
+import { userApp } from "../../features/users/userType.ts";
+
+// import { Link, Route } from "react-router-dom"
+
+
+import Register from "./Register.tsx";
+import { Link } from "react-router";
+
 //
 // interface LoginProps {
 //   onLogin: (username: string, password: string) => void;
@@ -63,8 +69,7 @@ const Login = observer(() => {
 
         <button type="submit" style={{ padding: "0.5rem 1rem" }}>Login</button>
       </form>
-      
-    <Link to="login/"></Link>
+      <Link to="/register">register</Link>
     </div>
   );
 

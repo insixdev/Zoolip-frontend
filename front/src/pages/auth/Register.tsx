@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
-import {useAuth} from './auth/useAuth.ts'
 import { observer } from "mobx-react-lite";
-import { userApp } from "./user/userType.ts";
-import { AuthContext } from "./auth/authContext.ts";
-//
+import { AuthContext } from "../../features/auth/authContext";
+import { useAuth } from "../../features/auth/useAuth";
+
 // interface LoginProps {
 //   onLogin: (username: string, password: string) => void;
 // }
 const Login = observer(() => {
   // usamos el auth
-  const { login } = useAuth();
+ const { login } = useAuth();
   // por si ya esta registrado 
   const auth = useContext(AuthContext)
 
