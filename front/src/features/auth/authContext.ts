@@ -1,7 +1,6 @@
-// AuthContext.tsx
 import { createContext } from "react";
-import { userApp, userAppRegister } from '@/features/users/userType'
-import { loginUserRequest, registerUserResponse } from "./authService";
+import { RegisterUserResponse, UserAppRegister, UserRequest } from "./authService";
+import { UserApp } from "../users/userType";
 
 /**
  * contrato de que datos
@@ -12,10 +11,10 @@ import { loginUserRequest, registerUserResponse } from "./authService";
 
 
 interface AuthContextType {
-  user: userApp | null;
+  user: UserApp | null;
   logout: () => void;
-  login: (user: loginUserRequest) => Promise<userApp>;
-  register: (user: userAppRegister) => Promise<registerUserResponse>;
+  login: (user: UserRequest) => Promise<UserApp>;
+  register: (user: UserAppRegister) => Promise<RegisterUserResponse>;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
