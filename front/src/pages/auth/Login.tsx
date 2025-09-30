@@ -6,7 +6,6 @@ import type { userApp } from "@/features/users";
 // import { Link, Route } from "react-router-dom"
 
 
-import Register from "./Register.tsx";
 import { Link } from "react-router";
 
 //
