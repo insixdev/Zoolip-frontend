@@ -1,6 +1,6 @@
 import React, {  useState, ReactNode } from "react";
 import {AuthContext } from './authContext.ts'
-import { userApp, userAppRegister } from "../user/userType.ts";
+import type { userApp, userAppRegister } from "/fre";
 import { loginService, registerService } from "./authService.ts";
 
 

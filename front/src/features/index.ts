@@ -1,2 +1,3 @@
 // barrel file
-export {default as admin/} 
+export * from "./auth"
+export * from "./users"

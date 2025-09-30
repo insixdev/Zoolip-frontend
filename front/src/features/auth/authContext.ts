@@ -1,6 +1,6 @@
 // AuthContext.tsx
 import { createContext } from "react";
-import { userApp, userAppRegister } from '../user/userType.ts'
+import { userApp, userAppRegister } from '@/features/users'
 
 /**
  * contrato de que datos

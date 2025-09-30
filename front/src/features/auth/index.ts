@@ -1,1 +1,2 @@
-expo rt { default as authContext } from "./authContext";
+export * from "./authContext";
+export { AuthProvider } from "./authProvider";

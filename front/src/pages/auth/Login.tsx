@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useAuth} from '../../features/auth/useAuth.ts'
 import { observer } from "mobx-react-lite";
-import { userApp } from "../../features/users/userType.ts";
+import type { userApp } from "@/features/users";
 
 // import { Link, Route } from "react-router-dom"
 
@@ -72,8 +72,6 @@ const Login = observer(() => {
       <Link to="/register">register</Link>
     </div>
   );
-
-
 })
 export default Login;
 
