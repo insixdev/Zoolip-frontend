@@ -8,6 +8,7 @@ export type userApp = {
   username: string
   id: number 
 }
+
 export type userAppRegister = {
   username: string | null;
   password: string | null;
