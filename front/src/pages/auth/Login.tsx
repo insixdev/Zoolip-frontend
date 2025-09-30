@@ -1,41 +1,61 @@
-import React, { useState } from "react";
-import {useAuth} from '../../features/auth/useAuth.ts'
+import React, { useEffect, useState } from "react";
+import { useAuth } from '../../features/auth/useAuth.ts'
 import { observer } from "mobx-react-lite";
-import type { userApp } from "@/features/users";
 
 // import { Link, Route } from "react-router-dom"
 
 
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { UserRequest } from "../../features/auth/authService.ts";
 
-//
-// interface LoginProps {
-//   onLogin: (username: string, password: string) => void;
-// }
+
 const Login = observer(() => {
-  // usamos el auth
-  const { login } = useAuth();
-
-  // estado local
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { /**user,*/ login } = useAuth();
+
+  const navigate = useNavigate();
+
+  const loginLogic = async () => {
+    const newUser: UserRequest = { username, password }
+    try {
+      const logSuc = await login(newUser);
+      if (logSuc) {
+        navigate("/");
+        alert("logeado con exito")
+      }
+      else {
+      alert("error al iniciar sesion:"  )
+      }
+
+    } catch (err) {
+      alert("error en el login: " + err)
+    }
+  }
+  // usamos el auth
+
+  // estado local
+  // useEffect(() => {
+  //   if(user.)
+  //
+  // })
+  const handleLogin = async () => {
+    loginLogic();
+    setUsername("");
+    setPassword("");
+
+  }
 
   // function cuando el usuario clickea el boton
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const user: userApp = {username, password}
-      await login(user);
-
-    } catch (err) {
-      alert("error en el login: " + err)
-
-    }
+    handleLogin();
     //onLogin(username, password);
     // Limpiar inputs si quieres
     setUsername("");
     setPassword("");
   };
+
 
   return (
     <div style={{ maxWidth: "400px", margin: "0 auto", padding: "2rem", border: "1px solid #ccc", borderRadius: "8px" }}>
