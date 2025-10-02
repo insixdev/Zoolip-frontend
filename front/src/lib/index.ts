@@ -1,1 +1,2 @@
-export {resCheck } from "./utils.ts";
+export * from './utils';
+export { resCheck } from "./utils";

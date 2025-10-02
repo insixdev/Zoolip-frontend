@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
-import { createBrowserRouter, RouterProvider } from 'react-router'
-import Login from './pages/auth/Login.tsx'
-import { AuthProvider } from './features/auth/authProvider.tsx'
-import Register from './pages/auth/Register.tsx'
+import App from './App'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Login from './pages/auth/Login'
+import { AuthProvider } from './features/auth'
+import Register from './pages/auth/Register'
 
 const router = createBrowserRouter([
   {path: "/", element: <App /> },

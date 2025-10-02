@@ -1,2 +1,4 @@
-export * from "./authContext";
-export { AuthProvider } from "./authProvider";
+export * from './authContext';
+export * from './authProvider';
+export * from './authService';
+export * from './useAuth';

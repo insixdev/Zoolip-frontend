@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
-import { useAuth } from "../../features/auth/useAuth";
+import { useAuth } from "@/features/auth/useAuth";
 import { useNavigate } from "react-router";
 import { RegisterUserResponse, UserAppRegister, } from "../../features/auth/authService";
 import { useState } from "react";
-import { UserApp } from "../../features/users/userType";
+import { UserApp } from "@/features/users/userType";
 
 // TODO: meterle a ssr rendering para mas seguridad 
 /**

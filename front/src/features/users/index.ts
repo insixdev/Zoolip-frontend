@@ -1,2 +1,3 @@
-export type { userApp, userAppRegister } from "./userType"
+export * from './userType';
+export type { UserApp } from "./userType";
 
