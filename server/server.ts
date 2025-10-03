@@ -1,4 +1,5 @@
 
+import '../front/src/styles/index.css'; // Tailwind + DaisyUI
 import express from "express";
 
 const app = express();
