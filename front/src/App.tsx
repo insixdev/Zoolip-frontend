@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom'
 function App(): JSX.Element {
 
   // const [count, setCount] = useState(0)
-  return  (
-    <>
-      <h1>mi app croteria</h1>
-      <Link to="login">logearse</Link>
-    </>
+  return (
+    <div className="app-container">
+      <h1>Mi App Croteria</h1>
+      <nav className="nav-links">
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
+        <Link to="/profile">Profile</Link>
+      </nav>
+    </div>
   )
 }
 export default App
