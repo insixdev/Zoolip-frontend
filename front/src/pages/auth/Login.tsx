@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useAuth } from '../../features/auth/useAuth.ts'
+import React, { useState } from "react";
+import { useAuth } from '../../features/auth';
 import { observer } from "mobx-react-lite";
-
-// import { Link, Route } from "react-router-dom"
-
-
-import { Link, useNavigate } from "react-router";
-import { UserRequest } from "../../features/auth/authService.ts";
+import { Link, useNavigate } from "react-router-dom";
+import { UserRequest } from '../../features/auth';
 
 
 const Login = observer(() => {

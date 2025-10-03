@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { RegisterUserResponse, UserAppRegister, UserRequest } from "./authService";
-import { UserApp } from "../users/userType";
+import { LoginResponseFull } from "../users/userType";
 
 /**
  * contrato de que datos
@@ -11,9 +11,9 @@ import { UserApp } from "../users/userType";
 
 
 interface AuthContextType {
-  user: UserApp | null;
+  user: LoginResponseFull| null;
   logout: () => void;
-  login: (user: UserRequest) => Promise<UserApp>;
+  login: (user: UserRequest) => Promise<LoginResponseFull>;
   register: (user: UserAppRegister) => Promise<RegisterUserResponse>;
 }
 

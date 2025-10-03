@@ -3,9 +3,7 @@
 
 export type UserApp= {
   status: string,
-  token: string,
-  username: string,
-  id: number
+  message: string,
 }
 
 // Si quieres juntar body + headers:
@@ -16,6 +14,7 @@ export type LoginResponseFull = {
 export type LoginResponseHeaders = {
   authorization?: string;
   idUsuario?: string;
+  Username?: string;
 }
 
 

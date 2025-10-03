@@ -3,7 +3,7 @@ import { useAuth } from "@/features/auth/useAuth";
 import { useNavigate } from "react-router";
 import { RegisterUserResponse, UserAppRegister, } from "../../features/auth/authService";
 import { useState } from "react";
-import { UserApp } from "@/features/users/userType";
+import { LoginResponseFull} from "@/features/users/userType";
 
 // TODO: meterle a ssr rendering para mas seguridad 
 /**
@@ -32,7 +32,7 @@ const Register = observer(() => {
     // nuestro user 
     const newUser: UserAppRegister = { username, password, rol }
     const regSuc: RegisterUserResponse = await register(newUser);
-    const succesLogin = (loginSuc: UserApp | RegisterUserResponse) => {
+    const succesLogin = (loginSuc: LoginResponseFull| RegisterUserResponse) => {
       alert("logeado con exito " + loginSuc) // para debuh
       navigate("/")
     }
@@ -42,7 +42,7 @@ const Register = observer(() => {
     if (regSuc.status != "error") {
       // si fuer exitoso logeamos automaticamente 
       const loginSuc = await login(newUser);
-      if (loginSuc.status) {
+      if (loginSuc.body.status) {
         succesLogin(loginSuc)
       } else {
         alert("usuario se creo pero no se pudo inciciar sesion")
