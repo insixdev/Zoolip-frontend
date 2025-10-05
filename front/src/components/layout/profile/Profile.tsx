@@ -1,7 +1,7 @@
 
-import { useAuth } from '../../../features/auth';
 import { useNavigate } from 'react-router-dom';
 import './profile.css';
+import { useAuth } from '@/features';
 
 export const Profile = () => {
   const { user, logout } = useAuth();
@@ -21,7 +21,7 @@ if (!user) {
     <div className="profile-container">
       <h2>Profile</h2>
       <div className="profile-info">
-        <p>Welcome, {user.headers.Username}!</p>
+        <p>Welcome, {user.headers.username}!</p>
         <p>User ID: {user.headers.idUsuario}</p>
         <p>Status: {user.body.status}</p>
       </div>

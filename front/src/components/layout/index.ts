@@ -1,2 +1,2 @@
-export * from './profile';
+export * from './profile/Profile';
 export * from "./navbar";
