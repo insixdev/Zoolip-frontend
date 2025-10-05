@@ -14,7 +14,7 @@ export type LoginResponseFull = {
 export type LoginResponseHeaders = {
   authorization?: string;
   idUsuario?: string;
-  Username?: string;
+  username?: string;
 }
 
 

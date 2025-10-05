@@ -2,13 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Login from './pages/auth/Login'
 import { AuthProvider } from './features/auth'
-import Register from './pages/auth/Register'
 
-import PrivateRouter from './components/ui/PrivateRouter'
 import './index.css'
-import { Profile } from './components/layout/profile'
+import PrivateRouter from './components/ui/PrivateRouter'
+import { Profile } from './components/layout'
+import { Login, Register } from './pages'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
