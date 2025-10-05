@@ -1,26 +1,21 @@
-import { useAuth } from '../../features/auth';
-import { useNavigate, Link } from 'react-router-dom';
+
+import { useAuth } from '../../../features/auth';
+import { useNavigate } from 'react-router-dom';
 import './profile.css';
-import { useEffect } from 'react';
 
 export const Profile = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
-    navigate('/login');
+    logout();         // limpia el user
+    navigate("/");    // redirige a la root
   };
 
-  useEffect(() => {
-    if (!user) {
-      navigate('/login');
-    }
-  }, [user, navigate]);
-
-  if (!user) {
-    return null;
-  }
+if (!user) {
+  navigate('/');
+  return null;
+}
 
   return (
     <div className="profile-container">
@@ -40,4 +35,5 @@ export const Profile = () => {
       </div>
     </div>
   );
-};
+}
+
