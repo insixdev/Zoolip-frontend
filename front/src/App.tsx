@@ -1,10 +1,11 @@
 //import { useState } from 'react'
 import { JSX, useEffect, useState } from 'react'
 import './App.css'
-import { Navbar } from './components/layout/navbar';
+import { Root } from './pages/root';
+import { Navbar } from './components/layout';
 
 function App(): JSX.Element {
-  const [see, setSee] = useState("");
+  const [see, setSee] = useState("notbhignk");
   useEffect(() =>{
        const fetchData = async () => {
       try {
@@ -23,8 +24,7 @@ function App(): JSX.Element {
  // const [count, setCount] = useState(0)
   return (
     <>
-      <Navbar/>
-      <h1>Mi App Croteria</h1>
+      <Root/>
       <p>{see}</p>
     </>
   );
